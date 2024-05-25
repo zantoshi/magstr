@@ -3,7 +3,7 @@ import { getProfileMetadata, getLightningAddress } from "@/services/nostr";
 
 export default async function ArticleDetail({ params }) {
   let data = await fetch(
-    `http://localhost:3000/api/articles/${params.id}`
+    `https://magstr.vercel.app/api/articles/${params.id}`
   ).then((res) => res.json());
   let article = data.article;
 
