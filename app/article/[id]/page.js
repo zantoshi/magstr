@@ -1,11 +1,13 @@
 import { formatDate, parseMarkdown } from "@/utils/utils";
 import { getProfileMetadata, getLightningAddress } from "@/services/nostr";
+import { getArticle } from "@/services/nostr";
 
 export default async function ArticleDetail({ params }) {
-  let data = await fetch(
-    `https://magstr.vercel.app/api/articles/${params.id}`
-  ).then((res) => res.json());
-  let article = data.article;
+  // let data = await fetch(
+  //   `https://magstr.vercel.app/api/articles/`
+  // ).then((res) => res.json());
+  // let article = data.article;
+  const article = await getArticle(params.id);
 
   const titleTag = article.tags.find((tag) => tag[0] === "title");
   const summaryTag = article.tags.find((tag) => tag[0] === "summary");
