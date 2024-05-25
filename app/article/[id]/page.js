@@ -18,7 +18,7 @@ export default async function ArticleDetail({ params }) {
   const parsedContent = await parseMarkdown(article.content);
 
   return (
-    <main className="flex flex-col items-center text-white">
+    <main className="flex flex-col items-center">
       <div className="text-center">
         <h1 className="text-4xl my-6">{title}</h1>
         <p className="text-lg bold font-medium">{summary}</p>
@@ -34,7 +34,7 @@ export default async function ArticleDetail({ params }) {
         </div>
       </div>
       <div
-        className="content-section prose prose-lg text-white w-full max-w-2xl overflow-x-auto"
+        className="content-section prose prose-lg w-full max-w-4xl overflow-x-auto"
         dangerouslySetInnerHTML={{ __html: parsedContent }}
       />
     </main>
